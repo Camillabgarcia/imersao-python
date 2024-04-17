@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.express as px
 
 df_principal = pd.read_excel('D:\\1USUARIOMASTER12-01-2024\\Desktop\\Alura-Python\\Planilha de Dados (1).xlsx', sheet_name='Principal')
 #print(df_principal.head(5)) - Mostra as 5 primeira linhas
@@ -83,4 +84,8 @@ df_analise_segmento = df_principal_subiu.groupby('Segmento')['Variacao_rs'].sum(
 #print(df_analise_segmento) - Soma agrupada por segmento
 
 df_analise_saldo = df_principal.groupby('Resultado')['Variacao_rs'].sum().reset_index()
-#print(df_analise_saldo) - Soma agrupada por segmento por saldo
+#print(df_analise_saldo) - Soma agrupada por saldo
+
+fig = px.bar(df_analise_saldo, x='Resultado', y='Variacao_rs', text='Variacao_rs', title='Variação Reais por Resultado')
+#fig.write_image('figura.png') - Criando o gráfico de saldo
+
