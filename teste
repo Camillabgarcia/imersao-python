@@ -1,0 +1,28 @@
+df_principal = df_principal.merge(df_chatgpt, left_on='Nome', right_on='Ticker', how='left')
+df_principal = df_principal.drop(columns=['Ticker'])
+print(df_principal)
+
+
+# Maior valor em R$
+maior_valor = df_principal['Variacao_rs'].max()
+
+# Menor valor em R$
+menor_valor = df_principal['Variacao_rs'].min()
+
+# Média dos valores em R$
+media_valores = df_principal['Variacao_rs'].mean()
+
+# Média dos valores de quem subiu em R$
+media_subiu = df_principal[df_principal['Resultado'] == 'Subiu']['Variacao_rs'].mean()
+
+# Média dos valores de quem desceu em R$
+media_desceu = df_principal[df_principal['Resultado'] == 'Desceu']['Variacao_rs'].mean()
+
+#print("Maior R$ {:.2f}".format(maior_valor))
+#print("Menor R$ {:.2f}".format(menor_valor))
+#print("Média R$ {:.2f}".format(media_valores))
+#print("Média de quem subiu R$ {:.2f}".format(media_subiu))
+#print("Média de quem desceu R$ {:.2f}".format(media_desceu))
+
+df_principal_subiu = df_principal[df_principal['Resultado'] == 'Subiu']
+#print(df_principal_subiu) - Criando um Dataframe apenas com as ações que subiram
