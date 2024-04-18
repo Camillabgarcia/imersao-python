@@ -224,4 +224,4 @@ fig.update_layout(yaxis_title='Preço',
 
 dados = yf.download('AAPL', start='2023-01-01', end='2023-12-31')
 mpf.plot(dados.head(30), type='candle', figsize = (16,8), volume=True, mav=(7,14))
-plt.show()
+#plt.show()
